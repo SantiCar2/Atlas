@@ -1,18 +1,24 @@
 {
   "root": true,
   "ignorePatterns": [
-    "projects/**/*"
+    "projects/**/*",
+    "dist/**/*",
+    "forge.config.js",
+    "out/**/*"
   ],
   "overrides": [
     {
       "files": [
         "*.ts"
       ],
+      "plugins": ["@typescript-eslint/eslint-plugin"],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -37,11 +43,12 @@
       "files": [
         "*.html"
       ],
+      "plugins": ["@angular-eslint"],
+      "parser": "@angular-eslint/template-parser",
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
-      ],
-      "rules": {}
+      ]
     }
   ]
 }
