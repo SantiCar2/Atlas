@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Atlas');
   });
 
-  it('should render title', () => {
+  it('should load the sidebar component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Atlas');
+    expect(compiled.querySelector('app-sidebar')).toBeTruthy();
   });
 });
