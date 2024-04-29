@@ -9,7 +9,7 @@
     "build": "tsc app.ts",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "eslint --stats .",
+    "lint": "eslint .",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "env-cmd electron-forge publish"
