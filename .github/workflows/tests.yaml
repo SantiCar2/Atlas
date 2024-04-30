@@ -5,6 +5,8 @@ on:
     branches:
       - '*'
   pull_request:
+    branches:
+      - 'master'
 
 jobs:
   test:
@@ -20,7 +22,15 @@ jobs:
           node-version: '20.12.0'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run unit tests
         run: npm test
+
+      - name: Report coverage
+        uses:  demyanets/angular-coverage-badges-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          coverage-summary-path: coverage/atlas/coverage.json
+          protected-branches: '["master",  "develop"]'
+        if: github.event_name == 'pull_request'

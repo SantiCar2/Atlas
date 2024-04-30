@@ -14,6 +14,7 @@ module.exports = function (config) {
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
       require( 'karma-chrome-launcher' ),
+      require( 'karma-json-reporter' ),
     ],
     client: {
       jasmine: {
@@ -35,7 +36,11 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    reporters: ['progress', 'kjhtml', 'coverage'],
+    reporters: ['progress', 'kjhtml', 'coverage', 'json'],
+    jsonReporter: {
+      stdout: true,
+      outputFile: 'coverage/atlas/coverage.json'
+    },
     browsers: ['ChromeHeadlessCI'],
     restartOnFileChange: true,
     customLaunchers: {
