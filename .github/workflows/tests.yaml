@@ -5,6 +5,8 @@ on:
     branches:
       - '*'
   pull_request:
+    branches:
+      - 'master'
 
 jobs:
   test:
@@ -25,10 +27,10 @@ jobs:
       - name: Run unit tests
         run: npm test
 
-      - name: Comment Test Coverage
-        uses: AthleticNet/comment-test-coverage@1.1
+      - name: Report coverage
+        uses:  demyanets/angular-coverage-badges-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: coverage/atlas/coverage.json
-          title: Karma Test Coverage
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          coverage-summary-path: coverage/atlas/coverage.json
+          protected-branches: '["master",  "develop"]'
         if: github.event_name == 'pull_request'
