@@ -27,10 +27,9 @@ jobs:
       - name: Run unit tests
         run: npm test
 
-      - name: Report coverage
-        uses:  demyanets/angular-coverage-badges-action@v1
+      - name: Report Test Coverage
+        uses: AthleticNet/comment-test-coverage@1.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          coverage-summary-path: coverage/atlas/coverage.json
-          protected-branches: '["master",  "develop"]'
-        if: github.event_name == 'pull_request'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: coverage/coverage-summary.json
+          title: Karma Test Coverage

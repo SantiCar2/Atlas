@@ -33,14 +33,12 @@ module.exports = function (config) {
       subdir: '.',
       reporters: [
         { type: 'html' },
-        { type: 'text-summary' }
+        { type: 'json-summary',
+        subdir: '.',
+        dir: 'coverage/' }
       ]
     },
-    reporters: ['progress', 'kjhtml', 'coverage', 'json'],
-    jsonReporter: {
-      stdout: true,
-      outputFile: 'coverage/atlas/coverage.json'
-    },
+    reporters: ['progress', 'kjhtml', 'coverage'],
     browsers: ['ChromeHeadlessCI'],
     restartOnFileChange: true,
     customLaunchers: {
