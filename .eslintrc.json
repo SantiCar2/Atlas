@@ -4,7 +4,8 @@
     "projects/**/*",
     "dist/**/*",
     "forge.config.js",
-    "out/**/*"
+    "out/**/*",
+    "coverage/**/*"
   ],
   "overrides": [
     {
