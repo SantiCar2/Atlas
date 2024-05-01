@@ -13,4 +13,8 @@ describe('TestService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return foo', () => {
+    expect(service.foo()).toBe('foo');
+  });
 });
