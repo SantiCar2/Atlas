@@ -35,7 +35,8 @@ module.exports = function (config) {
         { type: 'html' },
         { type: 'json-summary',
         subdir: '.',
-        dir: 'coverage/' }
+        dir: 'coverage/' },
+        { type: 'text-summary' }
       ]
     },
     reporters: ['progress', 'kjhtml', 'coverage'],
