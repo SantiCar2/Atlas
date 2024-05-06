@@ -48,3 +48,5 @@ app.js
 out
 .env
 resources/
+preload.js
+renderer.js

@@ -1,18 +1,25 @@
 <div class="sidebar">
-  <div class="d-flex">
-    <div ngbNav #nav="ngbNav" class="nav flex-column nav-pills" id="nav-tab" role="tablist">
-      <ng-container ngbNavItem="home">
-        <button ngbNavLink>Home</button>
-      </ng-container>
-      <ng-container ngbNavItem="library">
-        <button ngbNavLink>Library</button>
-      </ng-container>
-      <ng-container ngbNavItem="downloads">
-        <button ngbNavLink>Downloads</button>
-      </ng-container>
-      <ng-container ngbNavItem="settings">
-        <button ngbNavLink>Settings</button>
-      </ng-container>
-    </div>
-  </div>
+  <ul class="nav flex-column">
+    <li class="nav-item" [class.active]="currentRoute === '/home' || currentRoute === ''">
+      <a class="nav-link" routerLink="/home">
+        <i class="bi bi-house"></i> Home
+      </a>
+    </li>
+    <li class="nav-item" [class.active]="currentRoute === '/library'">
+      <a class="nav-link" routerLink="/library">
+        <i class="bi bi-collection"></i> Library
+      </a>
+    </li>
+    <li class="nav-item" [class.active]="currentRoute === '/downloads'">
+      <a class="nav-link" routerLink="/downloads">
+        <i class="bi bi-cloud-download"></i> Downloads
+      </a>
+    </li>
+    <li class="nav-item" [class.active]="currentRoute === '/settings'">
+      <a class="nav-link" routerLink="/settings">
+        <i class="bi bi-gear"></i> Settings
+      </a>
+    </li>
+    <!-- Add more sidebar items as needed -->
+  </ul>
 </div>

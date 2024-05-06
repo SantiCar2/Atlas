@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng build && electron-forge start",
+    "start": "tsc app.ts && tsc preload.ts && tsc renderer.ts && ng build && electron-forge start",
     "old-start": "ng build --base-href ./ && tsc app.ts && electron .",
     "build": "tsc app.ts",
     "watch": "ng build --watch --configuration development",
@@ -26,6 +26,7 @@
     "@angular/platform-server": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@angular/ssr": "^17.3.5",
+    "@electron/remote": "^2.1.2",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",

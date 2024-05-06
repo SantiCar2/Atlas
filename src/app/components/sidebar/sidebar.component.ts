@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, RouterModule } from '@angular/router';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,19 @@ import { Router } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
-export class SidebarComponent {
-  constructor(private router: Router) {}
-  active = 'top';
+export class SidebarComponent implements OnInit {
+  currentRoute: string;
+
+  constructor(private router: Router) {
+    this.currentRoute = '/home';
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
+      }
+    });
+    console.log(this.currentRoute);
+  }
 }

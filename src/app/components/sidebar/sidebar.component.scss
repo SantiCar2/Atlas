@@ -1,3 +1,18 @@
 .sidebar {
-  background-color: #12191F;
+  background-color: #2b2b2b; /* Example background color */
+  padding: 20px;
+  height: 100vh;
+}
+
+.nav-link {
+  color: white; /* Example link color */
+}
+
+.nav-item {
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.active {
+  background-color: #484949; /* Change to your desired selected color */
 }

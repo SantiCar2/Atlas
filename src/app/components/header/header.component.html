@@ -1,1 +1,9 @@
-<p>header works!</p> 
+<div class="window-header">
+  <div class="window-title">Atlas</div>
+  <div class="drag"></div>
+  <div class="window-controls">
+    <button (click)="minimize()" id="close-button"><i class="bi bi-dash"></i></button>
+    <button (click)="maximize()"><i class="bi bi-fullscreen"></i></button>
+    <button (click)="close()"><i class="bi bi-x"></i></button>
+  </div>
+</div>

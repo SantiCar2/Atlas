@@ -1,0 +1,16 @@
+/* Adjust sidebar width and main content area */
+.col-md-3 {
+  min-width: 200px; /* Adjust as needed */
+}
+
+.col-md-9 {
+  padding-left: 20px; /* Adjust as needed */
+}
+
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  background-color: aqua;
+  overflow: hidden;
+}
