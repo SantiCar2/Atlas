@@ -12,7 +12,7 @@ declare const window: any;
 export class HeaderComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private ipc!: any;
-  constructor() { 
+  constructor() {
     // eslint-disable-next-line no-useless-catch
     this.ipc = window.ipcApi;
   }
