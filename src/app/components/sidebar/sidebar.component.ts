@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
@@ -11,18 +11,16 @@ import { Router } from '@angular/router';
   styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent implements OnInit {
-  currentRoute: string;
+  currentRoute: string = '/home';
 
-  constructor(private router: Router) {
-    this.currentRoute = '/home';
+  constructor(private router: Router) {}
+  updateCurrentRoute(route: string) {
+    this.currentRoute = route;
   }
-
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.currentRoute = event.url;
-      }
+    this.router.events.subscribe(() => {
+      //TODO: Write unit test for this subscription
+      this.updateCurrentRoute(this.router.url);
     });
-    console.log(this.currentRoute);
   }
 }

@@ -2,7 +2,9 @@ import { ipcRenderer } from 'electron';
 import { contextBridge } from 'electron/renderer';
 
 const WINDOW_API = {
-  closeWindow: (message: string) => ipcRenderer.send('header', message),
+  closeWindow: () => ipcRenderer.invoke('header', 'closeWindow'),
+  minimizeWindow: () => ipcRenderer.invoke('header', 'minimizeWindow'),
+  maximizeWindow: () => ipcRenderer.invoke('header', 'maximizeWindow'),
 };
 
 contextBridge.exposeInMainWorld('ipcApi', WINDOW_API);

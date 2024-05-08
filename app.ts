@@ -53,6 +53,33 @@ app.on('activate', () => {
 });
 
 // IPC HANDLERS
+// ipcMain.on one way, ipcMain.handle two way
 ipcMain.on('header', (event, args) => {
   console.log(args);
+  console.log('ipcMain.on header');
+  event.reply('header', 'pong');
+});
+
+ipcMain.handle('header', (event, args) => {
+  switch (args) {
+    case 'closeWindow':
+      app.quit();
+      break;
+
+    case 'minimizeWindow':
+      BrowserWindow.getFocusedWindow()?.minimize();
+      break;
+
+    case 'maximizeWindow':
+      if (BrowserWindow.getFocusedWindow()?.isMaximized()) {
+        BrowserWindow.getFocusedWindow()?.unmaximize();
+        return;
+      } else {
+        BrowserWindow.getFocusedWindow()?.maximize();
+      }
+      break;
+
+    default:
+      break;
+  }
 });

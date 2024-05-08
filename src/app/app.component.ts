@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log('AppComponent ngOnInit');
+    sessionStorage.setItem('selectedItem', 'home');
   }
 }
