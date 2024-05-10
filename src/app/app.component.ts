@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -10,12 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrl: './app.component.scss',
   imports: [RouterOutlet, SidebarComponent, HeaderComponent],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Atlas';
 
   constructor() {}
-
-  ngOnInit(): void {
-    sessionStorage.setItem('selectedItem', 'home');
-  }
 }
