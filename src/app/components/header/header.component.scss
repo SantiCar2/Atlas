@@ -14,6 +14,16 @@
 
 .window-controls {
   display: flex;
+
+  .close:hover {
+    color: rgb(255, 123, 123);
+  }
+  .action:hover {
+    color: rgb(53, 137, 255);
+  }
+  .max {
+    font-size: 12px;
+  }
 }
 
 .window-controls button {
